@@ -4,7 +4,7 @@ public class ChoixCouleur {
 	private Couleur couleur;
 
 	public ChoixCouleur(final double etat) {
-		//Jimmy
+		
 		if (etat < 0.70) {
 			couleur = Couleur.vert;
 		} else if (etat < 1) {

@@ -64,10 +64,9 @@ public class Arrivee {
 		leTicket += MSGNUM + ++Arrivee.numeroSortie + "\n";
 
 		this.hDep = Calendar.getInstance();
-		
-		//on simule ici une sortie 32 mn plus tard
-		hDep.add(Calendar.MINUTE, +32);
-		
+
+		// on simule ici une sortie 32 mn plus tard
+
 		Date laDate = hDep.getTime();
 		SimpleDateFormat leJour = new SimpleDateFormat("dd/MM/yyyy");
 		leTicket += MSGDATE + leJour.format(laDate) + "\n";
@@ -77,7 +76,16 @@ public class Arrivee {
 
 		return leTicket;
 	}
-
+	
+	// Test Method
+	public void addTime(int additionalTime) {
+		afficheTicket();
+		hDep.add(Calendar.MINUTE, +additionalTime);
+	}
+	public void clearTime() {
+		hDep = Calendar.getInstance();
+	}
+	
 	public double getMontant() {
 		double cout = 0;
 
@@ -85,11 +93,13 @@ public class Arrivee {
 			// on passe des ms en mn
 			long dep = hDep.getTimeInMillis() / (1000 * 60);
 			long arr = this.horaireArrivee / (1000 * 60);
-			long duree =  dep - arr;
-			
+			long duree = dep - arr;
 
 			if (duree <= 30 && duree > 15) {
 				cout = 0.5;
+
+			} else if (duree <= 15) {
+				cout = 0;
 			} else {
 				if (duree < 60) {
 					cout = 1;
@@ -108,6 +118,7 @@ public class Arrivee {
 
 			}
 		}
+
 		return cout;
 	}
 
