@@ -22,6 +22,9 @@ public class TestMonetaire {
 		newArrivant.clearTime();
 		newArrivant.addTime(75);
 		assertEquals("Erreur sur le prix ", 1.5, newArrivant.getMontant(), 0.001);
+		newArrivant.clearTime();
+		newArrivant.addTime(80);
+		assertEquals("Erreur sur le prix ", 2.0, newArrivant.getMontant(), 0.001);
 
 	}
 

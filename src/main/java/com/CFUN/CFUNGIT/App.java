@@ -12,7 +12,9 @@ import java.io.IOException;
 
 /**
  * JavaFX App
+ * Merging Fix on master
  */
+
 public class App extends Application {
 
     private static Scene scene;
