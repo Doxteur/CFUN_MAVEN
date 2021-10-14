@@ -17,6 +17,11 @@
 			<version>13</version>
 		</dependency>
 		<dependency>
+			<groupId>com.dlsc.formsfx</groupId>
+			<artifactId>formsfx-core</artifactId>
+			<version>11.3.2</version>
+		</dependency>
+		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-fxml</artifactId>
 			<version>13</version>
