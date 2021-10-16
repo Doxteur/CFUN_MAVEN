@@ -24,21 +24,17 @@ import com.jfoenix.controls.JFXComboBox;
 public class App extends Application {
 
 	private static Scene scene;
-
-	@FXML
-	private JFXComboBox<String> comboBox;
+	private static char operation;
+	private static char typeDeSport;
 
 	@Override
-    public void start(Stage stage) throws IOException {
-    	
-        scene = new Scene(loadFXML("primary"), 991, 565);
-        stage.setScene(scene);
-        comboBox = (JFXComboBox) scene.lookup("#comboEntre");
-        comboBox.setItems(FXCollections.observableArrayList("Dog","Chat","Bear"));
+	public void start(Stage stage) throws IOException {
 
-        stage.show();
-           
-    }
+		scene = new Scene(loadFXML("primary"), 991, 565);
+		stage.setScene(scene);
+		stage.show();
+
+	}
 
 	static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
@@ -53,4 +49,19 @@ public class App extends Application {
 		launch();
 	}
 
+	public static void setOperation(char value) {
+		operation = value;
+	}
+
+	public static void settypeDeSport(char value) {
+		typeDeSport = value;
+	}
+
+	public static char getOperation() {
+		return operation;
+	}
+
+	public static char gettypeDeSport() {
+		return typeDeSport;
+	}
 }
