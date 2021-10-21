@@ -30,5 +30,15 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/etudiant/.m2/repository/com/google/zxing/core/3.4.1/core-3.4.1.jar" sourcepath="/home/etudiant/.m2/repository/com/google/zxing/core/3.4.1/core-3.4.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="com.google.zxing"/>
+			<attribute name="maven.artifactId" value="core"/>
+			<attribute name="maven.version" value="3.4.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/etudiant/Téléchargements/core-3.4.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
