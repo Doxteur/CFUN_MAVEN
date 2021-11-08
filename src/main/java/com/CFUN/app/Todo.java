@@ -9,9 +9,18 @@ public class Todo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String user;
 	private String summary;
 	private String description;
+	
+	public String getUser() {
+		return user;
+	}
 
+	public void setUser(String user) {
+		this.user = user;
+	}
+	
 	public String getSummary() {
 		return summary;
 	}
@@ -30,7 +39,7 @@ public class Todo {
 
 	@Override
 	public String toString() {
-		return "Todo [summary=" + summary + ", description=" + description + "]";
+		return "Todo [user=" + user + "summary=" + summary + ", description=" + description + "]";
 	}
 
 }

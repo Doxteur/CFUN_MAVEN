@@ -32,6 +32,7 @@ public class RunComplexe {
 		// create new todo
 		em.getTransaction().begin();
 		Todo todo = new Todo();
+		todo.setUser("PierroLeCharo");
 		todo.setSummary("This is a test");
 		todo.setDescription("This is a test");
 		em.persist(todo);
