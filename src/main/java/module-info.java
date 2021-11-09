@@ -4,8 +4,7 @@ module com.CFUN.CFUNGIT {
 	requires java.desktop;
 	requires javafx.graphics;
 	requires javafx.base;
-	requires com.google.zxing.javase;
-	requires com.google.zxing;
+	requires com.keepautomation.barcode;
 	
     opens com.CFUN.CFUNGIT to javafx.fxml;
     exports com.CFUN.CFUNGIT;
