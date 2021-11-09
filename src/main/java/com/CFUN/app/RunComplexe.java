@@ -23,19 +23,21 @@ public class RunComplexe {
 		EntityManager em = factory.createEntityManager();
 		// read the existing entries and write to console
 		Query q = em.createQuery("select t from Todo t");
-		List<Todo> todoList = q.getResultList();
-		for (Todo todo : todoList) {
+		List<Todo> connectList = q.getResultList();
+		for (Todo todo : connectList) {
 			System.out.println(todo);
 		}
-		System.out.println("Size: " + todoList.size());
+		System.out.println("Size: " + connectList.size());
 
 		// create new todo
 		em.getTransaction().begin();
-		Todo todo = new Todo();
-		todo.setUser("PierroLeCharo");
-		todo.setSummary("This is a test");
-		todo.setDescription("This is a test");
-		em.persist(todo);
+		Todo connection = new Todo();
+		connection.setType("client");
+		connection.setNom("Pierre");
+		connection.setPrenom("DOLIVET");
+		connection.setLogin("1234");
+		connection.setUser("Pierrot");
+		em.persist(connection);
 		em.getTransaction().commit();
 
 		em.close();
