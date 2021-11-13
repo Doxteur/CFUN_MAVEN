@@ -7,7 +7,7 @@ import java.util.Date;
 public class Arrivee {
 	private static int numeroSortie = 0;
 	private int numeroArrivee;
-
+	String[] BilletInfo;
 	public int getNumeroArrivee() {
 		return numeroArrivee;
 	}
@@ -47,10 +47,25 @@ public class Arrivee {
 		leBillet += MSGDATE + leJour.format(laDate) + "\n";
 		SimpleDateFormat lHeure = new SimpleDateFormat("HH:mm");
 		leBillet += MSGHEURE + lHeure.format(laDate) + "\n";
-
 		return leBillet;
 	}
 
+	public String[] GetBilletInfo() {
+		
+		//Gestion de la date
+		Calendar leCal = Calendar.getInstance();
+		leCal.setTimeInMillis(this.horaireArrivee);
+		Date laDate = leCal.getTime();
+		SimpleDateFormat leJour = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat lHeure = new SimpleDateFormat("HH:mm");
+		
+		
+		String[] BilletInfo = { this.getComplexe().getNomComplexe(), String.valueOf(this.numeroArrivee),
+				leJour.format(laDate), lHeure.format(laDate) };
+		
+		return BilletInfo;
+		
+	}
 	public String afficheTicket() {
 		final String MSGNOM = "Complexe ";
 		final String MSGNUM = "Ticket de sortie n° : ";
@@ -76,16 +91,17 @@ public class Arrivee {
 
 		return leTicket;
 	}
-	
+
 	// Test Method
 	public void addTime(int additionalTime) {
 		afficheTicket();
 		hDep.add(Calendar.MINUTE, +additionalTime);
 	}
+
 	public void clearTime() {
 		hDep = Calendar.getInstance();
 	}
-	
+
 	public double getMontant() {
 		double cout = 0;
 
