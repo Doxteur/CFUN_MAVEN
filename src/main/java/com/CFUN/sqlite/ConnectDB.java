@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.sqlite.SQLiteDataSource;
 
 public class ConnectDB {
+	//Test pour générer et ouvrir la database
 	public static void main(String[] args) {
 		SQLiteDataSource ds = null;
 
@@ -24,7 +25,6 @@ public class ConnectDB {
 			e.printStackTrace();
 			System.exit(0);
 		}
-
 		System.out.println("Created database successfully");
 	}
 }
