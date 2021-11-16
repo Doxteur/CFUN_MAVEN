@@ -58,14 +58,15 @@ public class Arrivee {
 		Date laDate = leCal.getTime();
 		SimpleDateFormat leJour = new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat lHeure = new SimpleDateFormat("HH:mm");
-		
-		
 		String[] BilletInfo = { this.getComplexe().getNomComplexe(), String.valueOf(this.numeroArrivee),
 				leJour.format(laDate), lHeure.format(laDate) };
-		
 		return BilletInfo;
 		
 	}
+	
+	
+	
+	
 	public String afficheTicket() {
 		final String MSGNOM = "Complexe ";
 		final String MSGNUM = "Ticket de sortie n° : ";

@@ -20,7 +20,7 @@ import com.jfoenix.controls.JFXComboBox;
 /**
  * JavaFX App Merging Fix on master
  */
-
+//Merging With main
 public class App extends Application {
 
 	private static Scene scene;
