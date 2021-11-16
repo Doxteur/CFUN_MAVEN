@@ -22,5 +22,6 @@ public class generatingBarCode {
 	    catch (Exception e) {
 	    	e.printStackTrace();
 	    }
+	    // merging
 	}
 }
