@@ -9,7 +9,7 @@ public interface CheminDB {
 	SQLiteDataSource ds = new SQLiteDataSource();
 
 	public static void setUrl() {
-		//DB ronan
+		//DB ronan2.0
 		// Chemin ou va se créer le fichier
 		ds.setUrl("CFUNGIT/database.db");
 	}
