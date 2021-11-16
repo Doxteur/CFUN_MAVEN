@@ -1,5 +1,6 @@
 package com.CFUN.app;
 
+
 public class RunComplexe {
 	private static int nbMuscu = 4;
 	private static int nbFit = 5;
