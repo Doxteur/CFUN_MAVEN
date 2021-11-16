@@ -12,7 +12,7 @@ public class RunComplexe {
 	
 	public static void main(String[] args) {
 		Complexe leComplexe = new Complexe(nbMuscu, nbFit, nomComplexe);
-		
+
 		char repAutre = 'O';
 		char repType;
 		int repSortie;
@@ -26,14 +26,13 @@ public class RunComplexe {
 				if (leComplexe.entreeUsager(jArrive)) {
 					System.out.println(jArrive.afficheBillet());
 				}
-			}
-			else{
+			} else {
 				repSortie = Integer.parseInt(javax.swing.JOptionPane.showInputDialog(SORTIE));
 				System.out.println(leComplexe.sortieUsager(repSortie).afficheTicket());
 			}
 			System.out.print(leComplexe.lesInfos());
 			repAutre = Character.toUpperCase(javax.swing.JOptionPane.showInputDialog(AUTRE).charAt(0));
 		}
-		System.exit(0);	
+		System.exit(0);
 	}
 }
