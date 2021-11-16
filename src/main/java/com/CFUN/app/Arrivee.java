@@ -77,15 +77,6 @@ public class Arrivee {
 		return leTicket;
 	}
 	
-	// Getter to barCode creating
-	public String getNumberTicket() {
-		if (numeroArrivee < 10) {
-			return "0" + numeroArrivee;
-		}else {
-			return String.valueOf(numeroArrivee);			
-		}
-	}
-	
 	// Test Method
 	public void addTime(int additionalTime) {
 		afficheTicket();
