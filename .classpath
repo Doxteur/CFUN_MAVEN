@@ -24,12 +24,18 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/etudiant/Téléchargements/Pierr_Private/CFUN/KA.Barcode.for.Java/Library/jdk1.5/com.keepautomation.barcode.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+
 	<classpathentry kind="lib" path="src/main/java/com/CFUN/sqlite/sqlite-jdbc-3.36.0.3.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -45,5 +51,6 @@
 			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
+
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
