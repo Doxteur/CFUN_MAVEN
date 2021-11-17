@@ -59,25 +59,20 @@ public class Complexe {
 	}
 
 	public Arrivee sortieUsager(final int entree) {
-		System.out.println("Nombre usager Fitnes puis musuc");
-		System.out.println(nbPlacesOccupeesFit);
-		System.out.println(nbPlacesOccupeesMuscu);
-		
+
 		if (Arrivee.GetArrivantByTicket(String.valueOf(entree)).getChoixSport() == 'F') {
 			this.oterUsagerFitness();
 		} else {
 			this.oterUsagerMusculation();
 		}
 
-		
-		System.out.println(nbPlacesOccupeesFit);
-		System.out.println(nbPlacesOccupeesMuscu);
-		
+		Arrivee.GetArrivantByTicket(String.valueOf(entree))
+				.RemoveArrivant(Arrivee.GetArrivantByTicket(String.valueOf(entree)));
+
 		return Arrivee.GetArrivantByTicket(String.valueOf(entree));
 	}
 
-	public Complexe(final int nbTotalPlacesMuscu, final int nbTotalPlacesFit,
-			final String nomComplexe) {
+	public Complexe(final int nbTotalPlacesMuscu, final int nbTotalPlacesFit, final String nomComplexe) {
 		this.nbTotalPlacesFit = nbTotalPlacesFit;
 		this.nbTotalPlacesMuscu = nbTotalPlacesMuscu;
 		this.nomComplexe = nomComplexe;
@@ -171,8 +166,7 @@ public class Complexe {
 	}
 
 	public double etatMuscu() {
-		return (this.getNbPlacesOccupeesMuscu()) * 1.0
-				/ this.nbTotalPlacesMuscu;
+		return (this.getNbPlacesOccupeesMuscu()) * 1.0 / this.nbTotalPlacesMuscu;
 	}
 
 	private Arrivee recherche(int num) {

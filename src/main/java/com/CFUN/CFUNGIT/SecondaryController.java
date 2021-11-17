@@ -14,68 +14,54 @@ public class SecondaryController {
 	private char Operation;
 	private char typedeSport;
 
-	
 	private static final String nomComplexe = "C Fun";
 	private static final String TYPE = "Type opération (E)ntrée ou (S)ortie : ";
 	private static final String SORTIE = "N° d'entrée à sortir : ";
 	private static final String CHOIX = "(M)usculation, (F)itness : ";
 	private static final String AUTRE = "Autre opération (O/N) : ";
-	
-	//FXML
+
+	// FXML
 	public TextField valueOfTicket = null;
 	public AnchorPane TicketNumberSortie = null;
 	Complexe leComplexe = Arrivee.GetComplexe();
-	
-	
+
 	@FXML
 	public void BackToMainPage() throws IOException {
 		App.setRoot("primary");
 	}
-	
+
 	@FXML
 	public void initialize() {
 
-
 		Operation = App.getOperation();
 		typedeSport = App.gettypeDeSport();
-		
-		
+
 		if (Operation == 'E') {
-			
-			Arrivee newArrivant = new Arrivee(leComplexe,typedeSport);
+
+			Arrivee newArrivant = new Arrivee(leComplexe, typedeSport);
 			Arrivee.AjoutArrivant(newArrivant);
-			
+
 			if (leComplexe.entreeUsager(newArrivant)) {
 				// String[] monBillet = newArrivant.GetBilletInfo();
 				System.out.println("Nouvelle entree");
 			}
-			
-		}else {
-			
+		} else {
 			TicketNumberSortie.setVisible(true);
-			System.out.println(Arrivee.GetAllArrivant());
-			
 		}
-		System.out.print(leComplexe.lesInfos());
 	}
-	
+
 	@FXML
 	private void ValidateTicket() {
-		
-		int TicketNumber = valueOfTicket.getText().equals("")?0:Integer.parseInt(valueOfTicket.getText());
-		
-		if(TicketNumber < 1) {
-			System.out.println("Vous n'avez pas pris de ticket.");
-		}else {
-		System.out.println("Get arrivant ticket : ");
-		System.out.println(Arrivee.GetArrivantByTicket(String.valueOf(TicketNumber)));
-		System.out.println("Get Arrivant Fin");	
 
-		System.out.println(leComplexe.sortieUsager(TicketNumber));
-		
-		
+		int TicketNumber = valueOfTicket.getText().equals("") ? 0 : Integer.parseInt(valueOfTicket.getText());
+
+		if (TicketNumber < 1) {
+			System.out.println("Vous n'avez pas pris de ticket.");
+		} else {
+
+			System.out.println(leComplexe.sortieUsager(TicketNumber));
+
 		}
 	}
 
-	
 }

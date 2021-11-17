@@ -10,8 +10,8 @@ public class Arrivee {
 	private static int numeroSortie = 0;
 	private int numeroArrivee;
 	String[] BilletInfo;
-	static List<Arrivee> ListArrivant =new ArrayList<>();
-	
+	static List<Arrivee> ListArrivant = new ArrayList<>();
+
 	private static int nbMuscu = 4;
 	private static int nbFit = 5;
 	private static final String nomComplexe = "C Fun";
@@ -21,7 +21,7 @@ public class Arrivee {
 	public static Complexe GetComplexe() {
 		return leComplexe;
 	}
-	
+
 	public int getNumeroArrivee() {
 		return numeroArrivee;
 	}
@@ -44,8 +44,6 @@ public class Arrivee {
 		this.hDep = null;
 	}
 
-
-	
 	public String afficheBillet() {
 		final String MSGNOM = "Complexe ";
 		final String MSGNUM = "Billet d'entrée n° : ";
@@ -67,25 +65,22 @@ public class Arrivee {
 	}
 
 	public String[] GetBilletInfo() {
-		
-		//Gestion de la date
+
+		// Gestion de la date
 		Calendar leCal = Calendar.getInstance();
 		leCal.setTimeInMillis(this.horaireArrivee);
-		
+
 		Date laDate = leCal.getTime();
-		
+
 		SimpleDateFormat leJour = new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat lHeure = new SimpleDateFormat("HH:mm");
-		
+
 		String[] BilletInfo = { this.getComplexe().getNomComplexe(), String.valueOf(this.numeroArrivee),
 				leJour.format(laDate), lHeure.format(laDate) };
 		return BilletInfo;
-		
+
 	}
-	
-	
-	
-	
+
 	public String afficheTicket() {
 		final String MSGNOM = "Complexe ";
 		final String MSGNUM = "Ticket de sortie n° : ";
@@ -122,38 +117,32 @@ public class Arrivee {
 		hDep = Calendar.getInstance();
 	}
 
-	
-	//Gestion des arrivants
-	
-	
-	
+	// Gestion des arrivants
+
 	public static Arrivee GetArrivantByTicket(String NumeroTicket) {
-		for(int i = 0 ; i < ListArrivant.size();i++) {
-			if(ListArrivant.get(i).GetBilletInfo()[1].equals(NumeroTicket)) {
-				System.out.println(ListArrivant.get(i).GetBilletInfo()[1]);
+		for (int i = 0; i < ListArrivant.size(); i++) {
+			if (ListArrivant.get(i).GetBilletInfo()[1].equals(NumeroTicket)) {
 				return ListArrivant.get(i);
 			}
 		}
 		return null;
 	}
-	
-	
-	
-	public static List<Arrivee> GetAllArrivant() {
-		for(int i = 0 ; i < ListArrivant.size();i++) {
-			System.out.println(ListArrivant.get(i).GetBilletInfo()[1]);
 
+	public static List<Arrivee> GetAllArrivant() {
+		for (int i = 0; i < ListArrivant.size(); i++) {
+			System.out.println(ListArrivant.get(i).GetBilletInfo()[1]);
 		}
 		return ListArrivant;
 	}
-	
+
 	public static void AjoutArrivant(Arrivee Arrivant) {
 		ListArrivant.add(Arrivant);
 	}
+	public static void RemoveArrivant(Arrivee Arrivant) {
+		ListArrivant.remove(Arrivant);		
+	}
 	
-	
-	
-	
+
 	public double getMontant() {
 		double cout = 0;
 
