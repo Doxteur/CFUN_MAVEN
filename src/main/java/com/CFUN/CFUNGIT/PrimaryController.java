@@ -30,6 +30,14 @@ public class PrimaryController {
 	public PasswordField PasswordFielde = null;
 	public Text WrongPasswordText = null;
 	
+	
+	@FXML
+	private void BackToMainPage() {
+		PasswordAnchor.setVisible(false);
+		TypeOperation.setVisible(false);
+		LoginSelection.setVisible(true);
+	}
+	
 	@FXML 
 	private void TryLogin() {
 		if(PasswordFielde.getText().equals("test")) {

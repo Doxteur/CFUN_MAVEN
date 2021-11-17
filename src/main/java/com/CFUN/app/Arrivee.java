@@ -1,13 +1,27 @@
 package com.CFUN.app;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Arrivee {
 	private static int numeroSortie = 0;
 	private int numeroArrivee;
 	String[] BilletInfo;
+	static List<Arrivee> ListArrivant =new ArrayList<>();
+	
+	private static int nbMuscu = 4;
+	private static int nbFit = 5;
+	private static final String nomComplexe = "C Fun";
+
+	static Complexe leComplexe = new Complexe(nbMuscu, nbFit, nomComplexe);
+
+	public static Complexe GetComplexe() {
+		return leComplexe;
+	}
+	
 	public int getNumeroArrivee() {
 		return numeroArrivee;
 	}
@@ -30,6 +44,8 @@ public class Arrivee {
 		this.hDep = null;
 	}
 
+
+	
 	public String afficheBillet() {
 		final String MSGNOM = "Complexe ";
 		final String MSGNUM = "Billet d'entrée n° : ";
@@ -55,9 +71,12 @@ public class Arrivee {
 		//Gestion de la date
 		Calendar leCal = Calendar.getInstance();
 		leCal.setTimeInMillis(this.horaireArrivee);
+		
 		Date laDate = leCal.getTime();
+		
 		SimpleDateFormat leJour = new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat lHeure = new SimpleDateFormat("HH:mm");
+		
 		String[] BilletInfo = { this.getComplexe().getNomComplexe(), String.valueOf(this.numeroArrivee),
 				leJour.format(laDate), lHeure.format(laDate) };
 		return BilletInfo;
@@ -103,6 +122,38 @@ public class Arrivee {
 		hDep = Calendar.getInstance();
 	}
 
+	
+	//Gestion des arrivants
+	
+	
+	
+	public static Arrivee GetArrivantByTicket(String NumeroTicket) {
+		for(int i = 0 ; i < ListArrivant.size();i++) {
+			if(ListArrivant.get(i).GetBilletInfo()[1].equals(NumeroTicket)) {
+				System.out.println(ListArrivant.get(i).GetBilletInfo()[1]);
+				return ListArrivant.get(i);
+			}
+		}
+		return null;
+	}
+	
+	
+	
+	public static List<Arrivee> GetAllArrivant() {
+		for(int i = 0 ; i < ListArrivant.size();i++) {
+			System.out.println(ListArrivant.get(i).GetBilletInfo()[1]);
+
+		}
+		return ListArrivant;
+	}
+	
+	public static void AjoutArrivant(Arrivee Arrivant) {
+		ListArrivant.add(Arrivant);
+	}
+	
+	
+	
+	
 	public double getMontant() {
 		double cout = 0;
 

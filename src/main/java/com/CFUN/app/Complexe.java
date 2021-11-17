@@ -59,13 +59,21 @@ public class Complexe {
 	}
 
 	public Arrivee sortieUsager(final int entree) {
-		Arrivee leDepart = recherche(entree);
-		if (leDepart.getChoixSport() == 'F') {
+		System.out.println("Nombre usager Fitnes puis musuc");
+		System.out.println(nbPlacesOccupeesFit);
+		System.out.println(nbPlacesOccupeesMuscu);
+		
+		if (Arrivee.GetArrivantByTicket(String.valueOf(entree)).getChoixSport() == 'F') {
 			this.oterUsagerFitness();
 		} else {
 			this.oterUsagerMusculation();
 		}
-		return leDepart;
+
+		
+		System.out.println(nbPlacesOccupeesFit);
+		System.out.println(nbPlacesOccupeesMuscu);
+		
+		return Arrivee.GetArrivantByTicket(String.valueOf(entree));
 	}
 
 	public Complexe(final int nbTotalPlacesMuscu, final int nbTotalPlacesFit,

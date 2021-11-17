@@ -71,6 +71,11 @@
                         <Font name="Arial Bold" size="26.0" />
                      </font>
                   </JFXButton>
+                  <JFXButton layoutX="358.0" layoutY="470.0" onAction="#BackToMainPage" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: #ff6f16;" text="Retour" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="LoginSelection" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -106,6 +111,11 @@
                   </JFXButton>
                   <PasswordField fx:id="PasswordFielde" layoutX="172.0" layoutY="257.0" />
                   <Text fx:id="WrongPasswordText" fill="#d30f0f" layoutX="178.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mauvais mot de passe" visible="false" wrappingWidth="140.0" />
+                  <JFXButton buttonType="RAISED" layoutX="189.0" layoutY="446.0" onAction="#BackToMainPage" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: #FF6F16;" text="Retour" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="17.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </AnchorPane>
          </children>
