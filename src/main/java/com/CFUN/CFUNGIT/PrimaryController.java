@@ -1,6 +1,5 @@
 package com.CFUN.CFUNGIT;
 
-import java.awt.TextArea;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
@@ -29,6 +28,14 @@ public class PrimaryController {
 	public AnchorPane PasswordAnchor = null;
 	public PasswordField PasswordFielde = null;
 	public Text WrongPasswordText = null;
+	
+	
+	@FXML
+	private void BackToMainPage() {
+		PasswordAnchor.setVisible(false);
+		TypeOperation.setVisible(false);
+		LoginSelection.setVisible(true);
+	}
 	
 	@FXML 
 	private void TryLogin() {
