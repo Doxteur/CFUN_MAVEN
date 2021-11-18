@@ -1,6 +1,5 @@
 package com.CFUN.CFUNGIT;
 
-import java.awt.TextArea;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;

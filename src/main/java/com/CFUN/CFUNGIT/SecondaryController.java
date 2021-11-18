@@ -1,7 +1,6 @@
 package com.CFUN.CFUNGIT;
 
 import java.io.IOException;
-import java.net.URL;
 
 import com.CFUN.app.Arrivee;
 import com.CFUN.app.Complexe;

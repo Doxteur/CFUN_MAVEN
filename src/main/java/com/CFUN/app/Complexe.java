@@ -65,7 +65,7 @@ public class Complexe {
 		} else {
 			this.oterUsagerMusculation();
 		}
-
+		
 		Arrivee.GetArrivantByTicket(String.valueOf(entree))
 				.RemoveArrivant(Arrivee.GetArrivantByTicket(String.valueOf(entree)));
 

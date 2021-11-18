@@ -24,7 +24,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/DOUSSAIN/git/CFUN_MAVEN/LibraryAInstaller/com.keepautomation.barcode.jar">
+	<classpathentry kind="lib" path="C:/Users/33646/git/CFUN_MAVEN/LibraryAInstaller/com.keepautomation.barcode.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
