@@ -6,10 +6,47 @@ import com.keepautomation.barcode.*;
 
 public class generatingBarCode {
 
+	String CodeBar;
+	
+	public void GetInfo() {
+		Complexe lecomplexe = new Complexe(4, 4, "CFUN");
+		Arrivee MonArrivant = new Arrivee(lecomplexe, 'M');
+		Arrivee.AjoutArrivant(MonArrivant);
+		lecomplexe.entreeUsager(MonArrivant);
+		Arrivee MonArrivant2 = Arrivee.GetArrivantByTicket("1");
+
+		String[] Infobillet = MonArrivant.GetBilletInfo();
+		String[] parts = Infobillet[2].split("/");
+		String[] HourParts = Infobillet[3].split(":");
+
+		// NUMERO DU TICKET pour ecrire sur le barcode
+		String CodeBarNumticket = "";
+		if (Integer.parseInt(Infobillet[1]) < 10) {
+			CodeBarNumticket = "0" + Infobillet[1];
+		} else {
+			CodeBarNumticket = Infobillet[1];
+		}
+
+		// DATE DU TICKET pour ecrire sur le barcode
+		int parts2 = Integer.parseInt(parts[2]) - 2000;
+		String DateTicket = parts[0] + parts[1] + parts2;
+
+		// HEURE DU TICKET pour ecrire sur le barcode
+		String HourTicket = HourParts[0] + HourParts[1];
+
+		// ECRITURE DU BARCODE
+		CodeBar = CodeBarNumticket + DateTicket + HourTicket;
+
+		System.out.println(CodeBar);
+		
+	}
+	
+	
+
 	public void GenerateCode() {
 
 		BarCode barcode = new BarCode();
-		barcode.setCodeToEncode("123456789");
+		barcode.setCodeToEncode(/*CodeBar*/"012345678999");
 		barcode.setSymbology(IBarCode.CODE128);
 		barcode.setX(2);
 		barcode.setY(50);
@@ -20,25 +57,11 @@ public class generatingBarCode {
 		barcode.setChecksumEnabled(false);
 		barcode.setFnc1(IBarCode.FNC1_NONE);
 		try {
-			barcode.draw("c://code128.gif");
+			barcode.draw("CFUNGIT/src/main/java/com/CFUN/barcodeGeneration/BARCODE_Images/barcode_" + CodeBar + ".png");
+			//barcode.draw("/home/etudiant/barcode.png");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// merging
 	}
 
-	public void GetInfo() {
-		Complexe lecomplexe = new Complexe(4, 4, "CFUN");
-		Arrivee MonArrivant = new Arrivee(lecomplexe, 'M');
-		Arrivee.AjoutArrivant(MonArrivant);
-		lecomplexe.entreeUsager(MonArrivant);
-		Arrivee MonArrivant2 = Arrivee.GetArrivantByTicket("1");
-
-		String[] Infobillet = MonArrivant.GetBilletInfo();
-
-		System.out.println(Infobillet);
-		for (int i = 0; i < Infobillet.length; i++) {
-			System.out.println(Infobillet[i]);
-		}
-	}
 }

@@ -21,7 +21,9 @@ public class RunComplexe {
 		char repChoix;
 
 		generatingBarCode codeBar = new generatingBarCode();
+
 		codeBar.GetInfo();
+		codeBar.GenerateCode();
 		
 		while (repAutre == 'O') {
 			repType = Character.toUpperCase(javax.swing.JOptionPane.showInputDialog(TYPE).charAt(0));
