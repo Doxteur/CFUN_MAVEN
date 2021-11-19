@@ -89,11 +89,16 @@
             </Text>
          </children>
       </AnchorPane>
-      <Text fx:id="ValideField" layoutX="383.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: green; -fx-font-weight: bold;" text="Ticket Pris En Compte" visible="false">
+      <Text fx:id="ValideField" layoutX="383.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: green; -fx-font-weight: bold;" text="Ticket Pris En Compte">
          <font>
             <Font size="23.0" />
          </font>
       </Text>
       <JFXButton layoutX="455.0" layoutY="462.0" onAction="#BackToMainPage" prefHeight="30.0" prefWidth="89.0" style="-fx-background-color: #FF6F16; -fx-text-fill: white; -fx-font-weight: bold;" text="Retour" />
+      <Text fx:id="ValideField1" layoutX="291.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: red; -fx-font-weight: bold;" text="Debug : Chaque ticket est générer avec 15 minute de simuation">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
