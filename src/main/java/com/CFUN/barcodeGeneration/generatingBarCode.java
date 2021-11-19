@@ -36,17 +36,57 @@ public class generatingBarCode {
 
 		// ECRITURE DU BARCODE
 		CodeBar = CodeBarNumticket + DateTicket + HourTicket;
-
-		System.out.println(CodeBar);
+		//System.out.println(CodeBar);
 		
+		// CALCUL DU 13eme DIGIT
+		int total = 0;
+		int valueCodenumber = 0;
+		char[] Codenumber = CodeBar.toCharArray();
+		
+		for(int i = 0; i < Codenumber.length; i++) {
+			//CONVERTISSEUR Codenumber to int
+			if(Codenumber[i] == '0') {
+				valueCodenumber = 0; }
+			if(Codenumber[i] == '1') {
+				valueCodenumber = 1; }
+			if(Codenumber[i] == '2') {
+				valueCodenumber = 2; }
+			if(Codenumber[i] == '3') {
+				valueCodenumber = 3; }
+			if(Codenumber[i] == '4') {
+				valueCodenumber = 4; }
+			if(Codenumber[i] == '5') {
+				valueCodenumber = 5; }
+			if(Codenumber[i] == '6') {
+				valueCodenumber = 6; }
+			if(Codenumber[i] == '7') {
+				valueCodenumber = 7; }
+			if(Codenumber[i] == '8') {
+				valueCodenumber = 8; }
+			if(Codenumber[i] == '9') {
+				valueCodenumber = 9; }
+			
+			//CALCUL TOTAL DIGIT-13
+			if(i % 2 == 0) {
+				// MULTIPLICATEUR PAR 1
+				total = total + valueCodenumber;
+			} else {
+				// MULTIPLICATEUR PAR 3
+				total = total + valueCodenumber * 3;
+			}
+            //System.out.println("NOMBRE n°" + (i+1) + " " + Codenumber[i]);
+        }
+        //System.out.println("TOTAL = " + total);
+        total = total % 10;
+        total = 10 - total;
+		CodeBar += total;
 	}
-	
 	
 
 	public void GenerateCode() {
 
 		BarCode barcode = new BarCode();
-		barcode.setCodeToEncode(/*CodeBar*/"012345678999");
+		barcode.setCodeToEncode(CodeBar);
 		barcode.setSymbology(IBarCode.CODE128);
 		barcode.setX(2);
 		barcode.setY(50);
@@ -57,7 +97,7 @@ public class generatingBarCode {
 		barcode.setChecksumEnabled(false);
 		barcode.setFnc1(IBarCode.FNC1_NONE);
 		try {
-			barcode.draw("CFUNGIT/src/main/java/com/CFUN/barcodeGeneration/BARCODE_Images/barcode_" + CodeBar + ".png");
+			barcode.draw("C:\\Users\\pierr\\git\\CFUN_MAVEN\\src\\main\\java\\com\\CFUN\\barcodeGeneration\\BarcodeImages\\barcode_" + CodeBar + ".png");
 			//barcode.draw("/home/etudiant/barcode.png");
 		} catch (Exception e) {
 			e.printStackTrace();
