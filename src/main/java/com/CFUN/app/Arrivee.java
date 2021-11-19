@@ -81,6 +81,23 @@ public class Arrivee {
 
 	}
 
+	public String[] GetBilletInfoSortie() {
+
+		// Gestion de la date
+		Calendar leCal = Calendar.getInstance();
+		leCal.setTimeInMillis(this.horaireArrivee);
+
+		Date laDate = leCal.getTime();
+
+		SimpleDateFormat leJour = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat lHeure = new SimpleDateFormat("HH:mm");
+
+		String[] BilletInfo = { this.getComplexe().getNomComplexe(), String.valueOf(this.numeroArrivee),
+				leJour.format(laDate), lHeure.format(laDate),String.valueOf(this.getMontant()) };
+		return BilletInfo;
+
+	}
+
 	public String afficheTicket() {
 		final String MSGNOM = "Complexe ";
 		final String MSGNUM = "Ticket de sortie n° : ";
