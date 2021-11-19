@@ -23,6 +23,7 @@ public class PrimaryController {
 	public JFXButton fitButton = null;
 	public AnchorPane LoginSelection = null;
 	public AnchorPane TypeOperation = null;
+	public JFXButton valideButton = null;
 	
 	//Password Page
 	public AnchorPane PasswordAnchor = null;
@@ -70,6 +71,9 @@ public class PrimaryController {
 		operation = 'E';
 		operationButton.setStyle("-fx-background-color: #FF6F16");
 		sortieButton.setStyle("-fx-background-color: grey");
+		muscuButton.setDisable(false);
+		fitButton.setDisable(false);
+		
 	}
 
 	@FXML
@@ -78,6 +82,7 @@ public class PrimaryController {
 		operation = 'S';
 		operationButton.setStyle("-fx-background-color: grey");
 		sortieButton.setStyle("-fx-background-color: #FF6F16");
+		valideButton.setDisable(false);
 	}
 
 	@FXML
@@ -86,6 +91,7 @@ public class PrimaryController {
 		typeDeSport = 'M';
 		muscuButton.setStyle("-fx-background-color: #FF6F16");
 		fitButton.setStyle("-fx-background-color: grey");
+		valideButton.setDisable(false);
 		
 	}
 
@@ -95,10 +101,12 @@ public class PrimaryController {
 		typeDeSport = 'F';
 		muscuButton.setStyle("-fx-background-color: grey");
 		fitButton.setStyle("-fx-background-color: #FF6F16");
+		valideButton.setDisable(false);
 	}
 
 	@FXML
 	private void valideButton() throws IOException {
+		
 		System.out.println("Operation :" + operation + " type de sport :" + typeDeSport);
 		App.setOperation(operation);
 		App.settypeDeSport(typeDeSport);

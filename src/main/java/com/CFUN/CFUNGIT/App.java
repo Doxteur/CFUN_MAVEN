@@ -30,6 +30,7 @@ public class App extends Application {
 		scene = new Scene(loadFXML("primary"), 991, 565);
 		stage.setScene(scene);
 		stage.show();
+		stage.setResizable(false);
 
 	}
 

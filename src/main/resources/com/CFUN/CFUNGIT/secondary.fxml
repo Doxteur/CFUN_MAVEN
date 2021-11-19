@@ -10,55 +10,54 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CFUN.CFUNGIT.SecondaryController">
    <children>
-      <AnchorPane prefHeight="580.0" prefWidth="1000.0">
+      <AnchorPane fx:id="BilletInfoAnchor" prefHeight="580.0" prefWidth="1000.0" visible="false">
          <children>
-            <JFXButton layoutX="90.0" layoutY="477.0" onAction="#BackToMainPage" prefHeight="30.0" prefWidth="89.0" style="-fx-background-color: #FF6F16; -fx-text-fill: white; -fx-font-weight: bold;" text="Retour" />
             <Text layoutX="93.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fx:id="valeurDate" layoutX="147.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeur">
+            <Text fx:id="DateField" layoutX="147.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeur">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="91.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket">
+            <Text layoutX="91.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fx:id="valeurTicket" layoutX="150.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeur">
+            <Text fx:id="TicketField" layoutX="150.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeurTicket">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="89.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type de sport">
+            <Text layoutX="91.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complexe">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fx:id="valueTypeDeSport" layoutX="233.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeur">
+            <Text fx:id="ComplexeField" layoutX="192.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeurComplexe">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="93.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complexe">
+            <Text layoutX="90.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Montant">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fx:id="valeurComplexe" layoutX="194.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeurComplexe">
+            <Text fx:id="MontantField" layoutX="186.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeur">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="91.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Montant">
+            <Text layoutX="93.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heure">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fx:id="valueMontant" layoutX="187.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeur">
+            <Text fx:id="HeureField" layoutX="172.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valeur">
                <font>
                   <Font size="20.0" />
                </font>
@@ -83,7 +82,18 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
+            <Text fx:id="ErreurTicket" layoutX="345.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: red; -fx-font-weight: bold;" text="Mauvais Numéro de ticket" visible="false">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
+      <Text fx:id="ValideField" layoutX="383.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: green; -fx-font-weight: bold;" text="Ticket Pris En Compte" visible="false">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="455.0" layoutY="462.0" onAction="#BackToMainPage" prefHeight="30.0" prefWidth="89.0" style="-fx-background-color: #FF6F16; -fx-text-fill: white; -fx-font-weight: bold;" text="Retour" />
    </children>
 </AnchorPane>

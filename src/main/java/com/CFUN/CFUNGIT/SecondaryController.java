@@ -8,6 +8,7 @@ import com.CFUN.app.Complexe;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 public class SecondaryController {
 	private char Operation;
@@ -22,10 +23,23 @@ public class SecondaryController {
 	// FXML
 	public TextField valueOfTicket = null;
 	public AnchorPane TicketNumberSortie = null;
+	public Text ComplexeField = null;
+	public Text TicketField = null;
+	public Text DateField = null;
+	public Text TypeField = null;
+	public Text MontantField = null;
+	public Text HeureField = null;
+	public Text ErreurTicket = null;
+	public Text ValideField = null;
+	
+	public AnchorPane BilletInfoAnchor = null;
+	
+	
 	Complexe leComplexe = Arrivee.GetComplexe();
 
 	@FXML
 	public void BackToMainPage() throws IOException {
+		System.out.println("Back");
 		App.setRoot("primary");
 	}
 
@@ -39,14 +53,13 @@ public class SecondaryController {
 
 			Arrivee newArrivant = new Arrivee(leComplexe, typedeSport);
 			Arrivee.AjoutArrivant(newArrivant);
-
 			if (leComplexe.entreeUsager(newArrivant)) {
-				// String[] monBillet = newArrivant.GetBilletInfo();
-				System.out.println("Nouvelle entree");
+				ValideField.setVisible(true);
 			}
 		} else {
 			TicketNumberSortie.setVisible(true);
 		}
+		
 	}
 
 	@FXML
@@ -57,9 +70,23 @@ public class SecondaryController {
 		if (TicketNumber < 1) {
 			System.out.println("Vous n'avez pas pris de ticket.");
 		} else {
-
+			try{
+			String[] BilletInfo = Arrivee.GetArrivantByTicket(String.valueOf(TicketNumber)).GetBilletInfoSortie();
+			ComplexeField.setText(BilletInfo[0]);
+			TicketField.setText(BilletInfo[1]);
+			DateField.setText(BilletInfo[2]);
+			HeureField.setText(BilletInfo[3]);
+			MontantField.setText(BilletInfo[4]);
+			BilletInfoAnchor.setVisible(true);
 			System.out.println(leComplexe.sortieUsager(TicketNumber));
 
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Erreur sur le ticket ! ");
+				ErreurTicket.setVisible(true);
+			}
+			
+			
 		}
 	}
 
