@@ -1,12 +1,26 @@
 package com.CFUN.app;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Arrivee {
 	private static int numeroSortie = 0;
 	private int numeroArrivee;
+	String[] BilletInfo;
+	static List<Arrivee> ListArrivant = new ArrayList<>();
+
+	private static int nbMuscu = 4;
+	private static int nbFit = 5;
+	private static final String nomComplexe = "C Fun";
+
+	static Complexe leComplexe = new Complexe(nbMuscu, nbFit, nomComplexe);
+
+	public static Complexe GetComplexe() {
+		return leComplexe;
+	}
 
 	public int getNumeroArrivee() {
 		return numeroArrivee;
@@ -47,8 +61,41 @@ public class Arrivee {
 		leBillet += MSGDATE + leJour.format(laDate) + "\n";
 		SimpleDateFormat lHeure = new SimpleDateFormat("HH:mm");
 		leBillet += MSGHEURE + lHeure.format(laDate) + "\n";
-
 		return leBillet;
+	}
+
+	public String[] GetBilletInfo() {
+
+		// Gestion de la date
+		Calendar leCal = Calendar.getInstance();
+		leCal.setTimeInMillis(this.horaireArrivee);
+
+		Date laDate = leCal.getTime();
+
+		SimpleDateFormat leJour = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat lHeure = new SimpleDateFormat("HH:mm");
+
+		String[] BilletInfo = { this.getComplexe().getNomComplexe(), String.valueOf(this.numeroArrivee),
+				leJour.format(laDate), lHeure.format(laDate) };
+		return BilletInfo;
+
+	}
+
+	public String[] GetBilletInfoSortie() {
+
+		// Gestion de la date
+		Calendar leCal = Calendar.getInstance();
+		leCal.setTimeInMillis(this.horaireArrivee);
+
+		Date laDate = leCal.getTime();
+
+		SimpleDateFormat leJour = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat lHeure = new SimpleDateFormat("HH:mm");
+
+		String[] BilletInfo = { this.getComplexe().getNomComplexe(), String.valueOf(this.numeroArrivee),
+				leJour.format(laDate), lHeure.format(laDate),String.valueOf(this.getMontant()) };
+		return BilletInfo;
+
 	}
 
 	public String afficheTicket() {
@@ -76,16 +123,43 @@ public class Arrivee {
 
 		return leTicket;
 	}
-	
+
 	// Test Method
 	public void addTime(int additionalTime) {
 		afficheTicket();
 		hDep.add(Calendar.MINUTE, +additionalTime);
 	}
+
 	public void clearTime() {
 		hDep = Calendar.getInstance();
 	}
+
+	// Gestion des arrivants
+
+	public static Arrivee GetArrivantByTicket(String NumeroTicket) {
+		for (int i = 0; i < ListArrivant.size(); i++) {
+			if (ListArrivant.get(i).GetBilletInfo()[1].equals(NumeroTicket)) {
+				return ListArrivant.get(i);
+			}
+		}
+		return null;
+	}
+
+	public static List<Arrivee> GetAllArrivant() {
+		for (int i = 0; i < ListArrivant.size(); i++) {
+			System.out.println(ListArrivant.get(i).GetBilletInfo()[1]);
+		}
+		return ListArrivant;
+	}
+
+	public static void AjoutArrivant(Arrivee Arrivant) {
+		ListArrivant.add(Arrivant);
+	}
+	public static void RemoveArrivant(Arrivee Arrivant) {
+		ListArrivant.remove(Arrivant);		
+	}
 	
+
 	public double getMontant() {
 		double cout = 0;
 

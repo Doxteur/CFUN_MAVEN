@@ -9,18 +9,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ResourceBundle;
-
 import javax.print.DocFlavor.URL;
-
 import com.jfoenix.controls.JFXComboBox;
 
 /**
  * JavaFX App Merging Fix on master
  */
-
+//Merging With main
 public class App extends Application {
 
 	private static Scene scene;
@@ -33,6 +30,7 @@ public class App extends Application {
 		scene = new Scene(loadFXML("primary"), 991, 565);
 		stage.setScene(scene);
 		stage.show();
+		stage.setResizable(false);
 
 	}
 
