@@ -42,6 +42,7 @@ public class Arrivee {
 		this.choixSport = choixSport;
 		this.complexe = complexe;
 		this.hDep = null;
+
 	}
 
 	public String afficheBillet() {

@@ -1,14 +1,13 @@
 package com.CFUN.CFUNGIT;
 
-import java.io.IOException;
-
 import com.CFUN.app.Arrivee;
 import com.CFUN.app.Complexe;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+
+import java.io.IOException;
 
 public class SecondaryController {
 	private char Operation;
@@ -42,6 +41,8 @@ public class SecondaryController {
 		System.out.println("Back");
 		App.setRoot("primary");
 	}
+
+
 
 	@FXML
 	public void initialize() {
@@ -78,10 +79,10 @@ public class SecondaryController {
 			HeureField.setText(BilletInfo[3]);
 			MontantField.setText(BilletInfo[4]);
 			BilletInfoAnchor.setVisible(true);
+
 			System.out.println(leComplexe.sortieUsager(TicketNumber));
 
 			}catch (Exception e) {
-				// TODO: handle exception
 				System.out.println("Erreur sur le ticket ! ");
 				ErreurTicket.setVisible(true);
 			}

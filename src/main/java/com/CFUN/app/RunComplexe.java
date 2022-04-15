@@ -1,6 +1,7 @@
 package com.CFUN.app;
 
 import com.CFUN.barcodeGeneration.generatingBarCode;
+import java.util.logging.*;
 
 public class RunComplexe {
 	private static int nbMuscu = 4;
@@ -11,8 +12,12 @@ public class RunComplexe {
 	private static final String CHOIX = "(M)usculation, (F)itness : ";
 	private static final String AUTRE = "Autre opération (O/N) : ";
 
+	
 	public static void main(String[] args) {
-
+		
+		
+		
+		
 		Complexe leComplexe = new Complexe(nbMuscu, nbFit, nomComplexe);
 
 		char repAutre = 'O';
